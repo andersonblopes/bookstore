@@ -8,18 +8,19 @@ public class Book {
     private final String author;
     private final List<Category> categories;
 
-    public Book(String name, String author, List<Category> categories) {
+
+    public Book(String name, String author, Category... categories) {
         this.name = name;
         this.author = author;
-        this.categories = categories;
-    }
-
-    public String getName() {
-        return name;
+        this.categories = List.of(categories);
     }
 
     public String getAuthor() {
         return author;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public List<Category> getCategories() {
@@ -28,10 +29,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", categories=" + categories +
-                '}';
+        return "\nlivro:	" + name + "\nautor:	" + author
+                + "\ncategorias:	" + categories;
     }
 }
